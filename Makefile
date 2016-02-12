@@ -17,7 +17,7 @@ LLIBFLAGS = -L/usr/local/Cellar/boost/1.50.0/lib
 LINKFLAGS = -lboost_thread-mt -lboost_system-mt
 
 # FINAL FLAGS -- TO BE USED THROUGHOUT
-FLAGS = $(LLIBFLAGS) $(LDFLAGS) $(LINKFLAGS)
+FLAGS = $(CFLAGS) $(LLIBFLAGS) $(LDFLAGS) $(LINKFLAGS)
 
 
 # the build target executable:
