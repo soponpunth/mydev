@@ -1,5 +1,5 @@
 # the compiler: gcc for C program, define as g++ for C++
-CC = c++
+CC = g++
 
 # compiler flags:
 #  -g    adds debugging information to the executable file
@@ -8,7 +8,7 @@ CFLAGS  = -g -Wall
 
 # define any directories containing header files
 #
-INCLUDES = -I/usr/local/Cellar/boost/1.50.0/include
+INCLUDES = -I/Users/snewper/Downloads/boost_1_60_0
 
 
 # the build target executable:
