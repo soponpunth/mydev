@@ -1,12 +1,12 @@
 #include <iostream>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
-// #include <boost/asio.hpp>
+#include <boost/asio.hpp>
 
 
 int main () {
   	using namespace boost::numeric::ublas;
-  	// boost::asio::io_service io;
+  	boost::asio::io_service io;
 
     matrix<double> m (3, 3);
     for (unsigned i = 0; i < m.size1 (); ++ i)
