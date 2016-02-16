@@ -11,18 +11,20 @@
 #include <iostream>
 #include <boost/array.hpp>
 #include <boost/asio.hpp>
+#include <time.h>
 
 using boost::asio::ip::udp;
+
 
 int main(int argc, char* argv[])
 {
   try
   {
-    // if (argc != 2)
-    // {
-    //   std::cerr << "Usage: client <message>" << std::endl;
-    //   return 1;
-    // }
+    if (argc != 2)
+    {
+      std::cerr << "Usage: client <car_identifier>" << std::endl;
+      return 1;
+    }
 
     // argv[1]
 
@@ -35,7 +37,16 @@ int main(int argc, char* argv[])
     udp::socket socket(io_service);
     socket.open(udp::v4());
 
-    boost::array<char, 1> send_buf  = {{0}};
+
+    srand(time(NULL));
+    float divider = (rand() % 5) + 1.1;
+    float rx = rand() % 10 / divider;
+    float ry = rand() % 10 / divider;
+    float carid = atof(argv[1]);
+
+    std::cout << rx << " , " << ry << " carid: " << carid << std::endl;
+
+    boost::array<float, 7> send_buf  = {{carid, rx, ry, 3.124, 2.241, 1.123, 1.002}};
     socket.send_to(boost::asio::buffer(send_buf), receiver_endpoint);
 
     boost::array<char, 128> recv_buf;

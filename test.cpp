@@ -2,16 +2,22 @@
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/asio.hpp>
+#include <armadillo>
 
+using namespace arma;
 
 int main () {
-  	using namespace boost::numeric::ublas;
   	boost::asio::io_service io;
 
-    matrix<double> m (3, 3);
-    for (unsigned i = 0; i < m.size1 (); ++ i)
-        for (unsigned j = 0; j < m.size2 (); ++ j)
-            m (i, j) = 3 * i + j;
+  	mat A(5,5);  
+  	A.eye();
 
-    std::cout << m << std::endl;
+	mat B = { {1, 3, 5},
+          {2, 4, 6} };
+
+  	std::cout << A << endl;
+  	std::cout << B << endl;
+
+
+  	return 0;
 }
